@@ -73,12 +73,14 @@ get_table_dft <- function(sig){
 
 sig <- generate_signal(N = N)
 
-
+start <- Sys.time()
 my_fft <- get_FFT(sig)
+end <- Sys.time()
+time_fft <- as.numeric(end - start)
 
-Re_fft_builted <- Re(fft(sig))
-Im_fft_builted <- Im(fft(sig))
-fft_builted <- sqrt(Re_fft_builted**2+Im_fft_builted**2)
+start <- Sys.time()
+table_dft <- get_table_dft(sig)
+end <- Sys.time()
+time_table_dft <- as.numeric(end - start)
 
-plot(seq(1,N),Re_fft_builted-my_fft)
-
+result <- sprintf("Result for FFT is %.2f, result for Table DFT is %.2f, FFT is %.2fx faster", time_fft,time_table_dft,time_table_dft/time_fft)
