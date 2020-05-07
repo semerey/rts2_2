@@ -1,8 +1,8 @@
-n_GARM <- 8
-w_GRAN <- 1200
-N <- 2048
+n_GARM <- 12
+w_GRAN <- 2700
+N <- 64
 
-generate_signal <- function(n_GARM = 8, w_GRAN = 1200, N){
+generate_signal <- function(n_GARM = 12, w_GRAN = 2700, N){
   
   #амплітуда і зсув
   A <- runif(n_GARM,0,1)
